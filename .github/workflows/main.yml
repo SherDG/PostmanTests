@@ -1,27 +1,18 @@
 # This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
+name: Newman Test Run
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+    branches:
+    - master
+    
 jobs:
-  test: # make sure the action works on a clean machine without building
+  newman:
     runs-on: ubuntu-latest
-    
-    - name: Run Newman
-      uses: ./      
-      id: run-api-tests
-      with:
-        collection: "workflow.json"
-        reporters: cli
-    
-    - name: Export Summary from Outputs
-      run: |
-        echo ${{ steps.run-api-tests.outputs.summary }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: '12'
+          collection: workflow.json
+      - run: npm install -g newman
+      - run: newman run workflow.json
