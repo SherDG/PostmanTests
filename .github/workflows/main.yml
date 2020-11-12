@@ -13,12 +13,12 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     newman:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@main
-      - uses: actions/setup-node@main
-        with:
-          node-version: '12'
-          collection: workflow.json
-      - run: npm install -g newman
-      - run: newman run workflow.json
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@main
+            - uses: actions/setup-node@main
+                with:
+                node-version: '12'
+                collection: workflow.json
+            - run: npm install -g newman
+            - run: newman run workflow.json
