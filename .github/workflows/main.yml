@@ -27,4 +27,4 @@ jobs:
             - run: newman run workflow.json  --reporters cli,htmlextra,testrail --reporter-htmlextra-export Report.html
             - uses: actions/upload-artifact@main
               with:
-                path: output/Report.html
+                path: Report.html
