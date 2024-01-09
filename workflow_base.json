@@ -1,10 +1,8 @@
 {
 	"info": {
-		"_postman_id": "0fb5d126-05ec-4849-b967-e055bca3f6c8",
-		"name": "Example workflow and github action",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "408166",
-		"_collection_link": "https://interstellar-flare-346173.postman.co/workspace/ItsMyCargo~332a7d42-fb13-4e7c-a5b0-01591a09e147/collection/408166-0fb5d126-05ec-4849-b967-e055bca3f6c8?action=share&source=collection_link&creator=408166"
+		"_postman_id": "a5e8a481-bd4c-4e32-9795-ca27330a206a",
+		"name": "Simple workflow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -13,30 +11,22 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "ae1aea47-ac89-4296-a812-09be7683bac5",
+						"type": "text/javascript",
 						"exec": [
 							"postman.setNextRequest(\"Request 3\");",
-							"",
-							"var jsonData = pm.response.json();",
-							"pm.test(\"Regex usage to validate JSON fields\", function () {",
-							"    pm.expect(jsonData.uuid).to.match(/^[0-9a-z\\.\\-\\/]{1,40}/);",
-							"});",
-							"",
-							"pm.test(\"Content-Type is present\", function () {",
-							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\")",
-							"});",
-							"",
 							""
-						],
-						"type": "text/javascript"
+						]
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "489b7711-3e76-48fd-91db-0fdba0ac8d59",
+						"type": "text/javascript",
 						"exec": [
 							""
-						],
-						"type": "text/javascript"
+						]
 					}
 				}
 			],
@@ -44,13 +34,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "httpbin.org/uuid",
+					"raw": "example.com",
 					"host": [
-						"httpbin",
-						"org"
-					],
-					"path": [
-						"uuid"
+						"example",
+						"com"
 					]
 				}
 			},
@@ -62,6 +49,7 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "c33f7489-144f-41af-bf09-dcc3dcbe59fc",
 						"type": "text/javascript",
 						"exec": [
 							"if (pm.globals.get(\"runnedOnce\")) {",
@@ -94,6 +82,7 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "ed13983e-f397-483e-b761-0f2742bdfe74",
 						"type": "text/javascript",
 						"exec": [
 							"postman.setNextRequest(\"Request 2\");"
@@ -120,6 +109,7 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "d5ff4666-682b-4e30-8652-7f040d879b4d",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -145,6 +135,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "25fd4df1-0b74-4ce4-91d8-28666bb4f057",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -154,11 +145,13 @@
 		{
 			"listen": "test",
 			"script": {
+				"id": "320c6946-5990-4e28-b91d-debd7399af45",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
