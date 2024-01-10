@@ -94,10 +94,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"type": "text/javascript",
 						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
 							"postman.setNextRequest(\"Request 2\");"
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
